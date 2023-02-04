@@ -1,12 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Homepage</title>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="Better ISUM project" content="Just a simple project." />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="app_mail.js"></script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://www.metropolitan.ac.rs/files/favicon/metropolitan-favicon1.png"
+    />
+    <link rel="stylesheet" href="styles_mail.css" />
+    <title>Metropolitan Mail</title>
   </head>
   <body>
-    <h1>MAIL</h1>
+    <header>
+      <div id="left_header">
+        <button>===</button>
+        <img src="" alt="" />
+        <input type="text" />
+      </div>
+      <div id="right_header">
+        <div class="dropdown">
+          <button>
+            <div>
+              <p>Pera Peric 1234</p>
+              <p>pera.peric.1234@metropolitan.ac.rs</p>
+            </div>
+            <div>
+              <div>asdf</div>
+            </div>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div>
+      <section id="side_panel" style="width: 25%">
+        <button>Compose</button>
+        <section size="max">
+          <div id="folders">
+            <div class="folder-group">
+              <button class="folder-header"><p>All Mail</p></button>
+              <div class="folder-content" active="false">
+                <div class="folder-group">
+                  <button class="folder-header"><p>Folder</p></button>
+                  <div class="folder-content" active="false">
+                    <button class="folder-header folder">
+                      <p>Another Folder</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="folder-group">
+              <button class="folder-header"><p>Inbox</p></button>
+              <div class="folder-content" active="false">
+                <button class="folder-header folder"><p>Folder</p></button>
+                <button class="folder-header folder"><p>Folder</p></button>
+              </div>
+            </div>
+            <div class="folder-group">
+              <button class="folder-header folder"><p>Drafts</p></button>
+            </div>
+            <div class="folder-group">
+              <button class="folder-header"><p>Sent</p></button>
+              <div class="folder-content" active="false">
+                <div class="folder-group">
+                  <button class="folder-header"><p>Folder</p></button>
+                  <div class="folder-content" active="false">
+                    <div class="folder-group">
+                      <button class="folder-header">
+                        <p>Another Folder</p>
+                      </button>
+                      <div class="folder-content" active="false">
+                        <button class="folder-header folder">
+                          <p>Another Folder</p>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="folder-group">
+              <button class="folder-header folder">Trash</button>
+            </div>
+          </div>
+          <button id="expand_button">expand</button>
+          <div expanded="true">
+            <div class="folder-group">
+              <button class="folder">starred</button>
+            </div>
+            <div class="folder-group">
+              <button class="folder">archive</button>
+            </div>
+            <div class="folder-group">
+              <button class="folder">spam</button>
+            </div>
+          </div>
+        </section>
+      </section>
+      <div class="resize-handle"></div>
+      <div id="main_window">asdff</div>
+    </div>
   </body>
 </html>

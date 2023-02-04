@@ -5,7 +5,6 @@ $(document).ready(function() {
       username: $("#username").val(),
       password: $("#password").val()
     };
-    console.log(data);
 
     $.ajax({
       type: "POST",
@@ -21,6 +20,7 @@ $(document).ready(function() {
       },
       error: function(error) {
         alert("An error occurred. Please try again later.");
+        console.log(error);
       }
     });
   });

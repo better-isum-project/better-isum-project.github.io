@@ -1,3 +1,8 @@
+:root {
+  --met-red: #a0052f;
+  --white: #ffffff;
+}
+
 *,
 *::after,
 *::before {
@@ -10,20 +15,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("https://isum.metropolitan.ac.rs/assets/1.0.1-SNAPSHOT/ctx/layout/img/login-bckg.jpg");
-  background-repeat: no-repeat;
+  background: url("https://isum.metropolitan.ac.rs/assets/1.0.1-SNAPSHOT/ctx/layout/img/login-bckg.jpg")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-position: center;
 }
 body > form {
   display: flex;
   justify-content: space-evenly;
-  width: 1000px;
-  min-width: 1000px;
-  min-height: 600px;
-  height: 600px;
+  width: 900px;
+  height: 500px;
   padding: 25px;
-  box-shadow: 10px 10px 10px #cbced1, -10px -10px 10px #f9f9f9;
   border-radius: 12px;
   background-color: #f9f9f9;
 }
@@ -34,8 +38,7 @@ body > form {
   height: auto;
 }
 #logo {
-  filter: invert(100%);
-  background-color: black;
+  background-color: transparent;
 }
 #form {
   display: flex;
@@ -54,7 +57,7 @@ body > form {
   border: none;
   outline: none;
   font-family: "Montserrat", sans-serif;
-  background-color: #eceef3;
+  background-color: #ecf0f3;
   transition: 250ms ease;
   border-radius: 8px;
   box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;
@@ -65,5 +68,16 @@ body > form {
 }
 
 #form button {
-  width: auto;
+  width: 150px;
+  height: 50px;
+  margin: 10px auto 0 auto;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.15px;
+  background-color: var(--met-red);
+  color: #ecf0f3;
+  box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px white;
+  border: none;
+  outline: none;
 }
