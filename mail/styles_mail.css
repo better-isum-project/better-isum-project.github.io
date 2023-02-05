@@ -80,9 +80,11 @@ body header div {
   height: 35px;
 }
 
+/*
+
 #folders > * > button.folder-header {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   transition: all 300ms ease-in-out;
 }
 #folders > * > div.folder-content button {
@@ -99,39 +101,7 @@ body header div {
   text-align: right;
   margin-left: 3px;
 }
-
-#folders .folder-header:not(:last-of-type .folder)::before {
-  content: "▼";
-  display: inline-block;
-  transform: rotate(-90deg);
-  transition: transform 100ms ease-in-out;
-}
-#folders .folder-header.active::before {
-  transform: rotate(0deg) !important;
-}
-
-.folder-header {
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.folder-content {
-  position: relative;
-  display: none;
-}
-.folder-content[active="true"] {
-  display: block;
-}
-
-.folder {
-  display: block;
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  padding: 10px;
-  cursor: pointer;
-}
+*/
 
 .resize-handle {
   width: 10px;
@@ -142,4 +112,58 @@ body header div {
 
 #main_window {
   width: auto;
+}
+
+/*          */
+
+ul,
+li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.folder-header p {
+  display: inline-block;
+}
+.folder-content {
+  margin-left: 20px;
+  overflow: hidden;
+  transition: max-height 300ms ease-in-out;
+  max-height: 0;
+}
+#folders .folder-header::before {
+  content: "▼";
+  display: inline-block;
+  transform: rotate(-90deg);
+  transition: transform 150ms ease-in-out;
+}
+#folders .folder-header.active::before {
+  transform: rotate(0deg) !important;
+}
+
+#folders * * .folder-header,
+#folders * * .content button {
+  border-radius: 20px;
+  margin: 1px 0;
+  padding: 5px;
+  border: 0;
+  transition: all 300ms ease-in-out;
+}
+#folders > * > *.folder-header,
+#folders > *.content button {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin: 1px 0;
+  padding: 5px;
+  border: 0;
+  transition: all 300ms ease-in-out;
+}
+
+#folders * * .folder-header:hover,
+#folders * * .content button:hover {
+  background-color: blue !important;
+}
+#folders > * > *.folder-header:hover,
+#folders > *.content button:hover {
+  background-color: blue !important;
 }

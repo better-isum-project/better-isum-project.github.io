@@ -46,65 +46,91 @@
         <button>Compose</button>
         <section size="max">
           <div id="folders">
-            <div class="folder-group">
-              <button class="folder-header"><p>All Mail</p></button>
-              <div class="folder-content" active="false">
-                <div class="folder-group">
-                  <button class="folder-header"><p>Folder</p></button>
-                  <div class="folder-content" active="false">
-                    <button class="folder-header folder">
-                      <p>Another Folder</p>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="folder-group">
-              <button class="folder-header"><p>Inbox</p></button>
-              <div class="folder-content" active="false">
-                <button class="folder-header folder"><p>Folder</p></button>
-                <button class="folder-header folder"><p>Folder</p></button>
-              </div>
-            </div>
-            <div class="folder-group">
-              <button class="folder-header folder"><p>Drafts</p></button>
-            </div>
-            <div class="folder-group">
-              <button class="folder-header"><p>Sent</p></button>
-              <div class="folder-content" active="false">
-                <div class="folder-group">
-                  <button class="folder-header"><p>Folder</p></button>
-                  <div class="folder-content" active="false">
-                    <div class="folder-group">
+            <!------->
+            <div class="folder">
+              <button class="folder-header">
+                <p>Folder Name</p>
+              </button>
+              <ul class="folder-content" active="false">
+                <li class="content"><button>File 1</button></li>
+                <li class="content"><button>File 2</button></li>
+                <li class="folder">
+                  <button class="folder-header">
+                    <p>sub Folder Name</p>
+                  </button>
+                  <ul class="folder-content" active="false">
+                    <li class="content"><button>Subfile 1</button></li>
+                    <li class="content"><button>Subfile 2</button></li>
+                    <li class="folder">
                       <button class="folder-header">
-                        <p>Another Folder</p>
+                        <p>sub Subfolder Name</p>
                       </button>
-                      <div class="folder-content" active="false">
-                        <button class="folder-header folder">
-                          <p>Another Folder</p>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      <ul class="folder-content" active="false">
+                        <li class="content"><button>Sub-subfile 1</button></li>
+                        <li class="content"><button>Sub-subfile 2</button></li>
+                        <li class="content"><button>Sub-subfile 3</button></li>
+                      </ul>
+                    </li>
+                    <li class="content"><button>Subfile 3</button></li>
+                  </ul>
+                </li>
+                <li class="content"><button>File 3</button></li>
+                <li class="folder">
+                  <button class="folder-header">
+                    <p>Subfolder Name</p>
+                  </button>
+                  <ul class="folder-content" active="false">
+                    <li class="content"><button>Subfile 1</button></li>
+                    <li class="content"><button>Subfile 2</button></li>
+                    <li class="folder">
+                      <button class="folder-header">
+                        <p>Sub-subfolder Name</p>
+                      </button>
+                      <ul class="folder-content" active="false">
+                        <li class="content"><button>Sub-subfile 1</button></li>
+                        <li class="content"><button>Sub-subfile 2</button></li>
+                        <li class="content"><button>Sub-subfile 3</button></li>
+                      </ul>
+                    </li>
+                    <li class="content"><button>Subfile 3</button></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-            <div class="folder-group">
-              <button class="folder-header folder">Trash</button>
+            <div class="folder">
+              <button class="folder-header">
+                <p>Folder Name</p>
+              </button>
+              <ul class="folder-content" active="false">
+                <li class="content"><button>File 1</button></li>
+                <li class="content"><button>File 2</button></li>
+                <li class="folder">
+                  <button class="folder-header">
+                    <p>sub Folder Name</p>
+                  </button>
+                  <ul class="folder-content" active="false">
+                    <li class="content"><button>Subfile 1</button></li>
+                    <li class="content"><button>Subfile 2</button></li>
+                    <li class="folder">
+                      <button class="folder-header">
+                        <p>sub Subfolder Name</p>
+                      </button>
+                      <ul class="folder-content" active="false">
+                        <li class="content"><button>Sub-subfile 1</button></li>
+                        <li class="content"><button>Sub-subfile 2</button></li>
+                        <li class="content"><button>Sub-subfile 3</button></li>
+                      </ul>
+                    </li>
+                    <li class="content"><button>Subfile 3</button></li>
+                  </ul>
+                </li>
+                <li class="content"><button>File 3</button></li>
+              </ul>
             </div>
+            <li class="content"><button>File 1234</button></li>
+            <!------->
           </div>
           <button id="expand_button">expand</button>
-          <div expanded="true">
-            <div class="folder-group">
-              <button class="folder">starred</button>
-            </div>
-            <div class="folder-group">
-              <button class="folder">archive</button>
-            </div>
-            <div class="folder-group">
-              <button class="folder">spam</button>
-            </div>
-          </div>
         </section>
       </section>
       <div class="resize-handle"></div>

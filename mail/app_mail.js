@@ -1,22 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+
   const folderHeaders = document.querySelectorAll('.folder-header');
-  folderHeaders.forEach(header => {
-    header.addEventListener('click', function() {
-      const elem = this.parentElement.querySelector('.folder-content')
-      const button_elem = this.parentElement.querySelector('.folder-header')
-      //const arrow = this.parentElement.querySelector('.folder-content')
-      if (elem.getAttribute("active") == "false")
-        elem.setAttribute("active", "true");
-      else
-        elem.setAttribute("active", "false");
-      button_elem.classList.toggle('active');
+  let currentlyOpenFolder = null;
+  
+  folderHeaders.forEach(folderHeader => {
+    folderHeader.addEventListener("click", function(event) {
+      const folderContent = this.nextElementSibling;
+      const isActive = folderContent.getAttribute("active") === "true";
+      folderContent.style.maxHeight = isActive ? 0 : `${folderContent.scrollHeight}px`;
+      folderContent.setAttribute("active", !isActive);
+      
+      let currentElement = this.parentElement;
+      while (currentElement.classList.contains("folder-content")) {
+        if (currentlyOpenFolder && folderContent !== currentlyOpenFolder) {
+          currentlyOpenFolder.style.maxHeight = 0;
+          currentlyOpenFolder.setAttribute("active", false);
+        }
+        currentElement.style.maxHeight = isActive
+          ? `${currentElement.offsetHeight - folderContent.offsetHeight}px`
+          : `${currentElement.offsetHeight + folderContent.offsetHeight}px`;
+        currentElement = currentElement.parentElement;
+      }
+      
+      currentlyOpenFolder = isActive ? null : folderContent;
     });
   });
 
-  const folders_to_add_margin = [...document.querySelectorAll('.folder-header'), ...document.querySelectorAll('.folder')];
-  folders_to_add_margin.forEach(folder => {
-    const value = 15 * countParentElementsWithClass(folder);
-    if (value) folder.style.marginLeft = value + "px";
+
+
+
+  folderHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
   });
 
   let isResizing = false;
@@ -35,15 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
     side_panel.style.width = (side_panel.offsetWidth + (event.clientX - startX)) + 'px';
     startX = event.clientX;
   });
+
+
 });
-
-function countParentElementsWithClass(element) {
-  let count = 0;
-  let parent = element.parentElement;
-  while (parent) {
-    if (parent.classList.contains("folder-content")) count++;
-    parent = parent.parentElement;
-  }
-  return count;
-}
-
