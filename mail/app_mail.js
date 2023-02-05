@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
       folderContent.style.maxHeight = isActive ? 0 : `${folderContent.scrollHeight}px`;
       folderContent.setAttribute("active", !isActive);
       
-      let parent = folderHeader.parentNode.parentNode;
+      let parent = folderHeader.parentElement.parentElement;
       while (parent) {
         parent.style.maxHeight = 'initial';
-        parent = parent.parentNode.parentNode;
+        parent = parent.parentElement.parentElement;
       }
     });
   });
