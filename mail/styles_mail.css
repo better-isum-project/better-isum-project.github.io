@@ -122,6 +122,10 @@ li {
   text-decoration: none;
 }
 
+#folders {
+  height: 836px;
+  overflow: auto;
+}
 .folder-header p {
   display: inline-block;
 }
