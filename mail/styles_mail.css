@@ -1,6 +1,7 @@
 :root {
   --met-red: #a0052f;
-  --white: #ffffff;
+  --met-red-bright: #ec7494;
+  --met-red-hover: #ffccd9;
 }
 
 *,
@@ -75,38 +76,16 @@ body header div {
   background-color: lightgray;
 }
 
-#side_panel > button:nth-child(1) {
+#side_panel > button:nth-child(1),
+#expand_button {
   width: 100%;
   height: 35px;
 }
 
-/*
-
-#folders > * > button.folder-header {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  transition: all 300ms ease-in-out;
-}
-#folders > * > div.folder-content button {
-  border-radius: 10px;
-  transition: all 300ms ease-in-out;
-}
-#folders > * > button.folder-header:hover,
-#folders > * > div.folder-content button:hover {
-  background-color: red;
-  transition: all 300ms ease-in-out;
-}
-#folders .folder-header:not(:last-of-type .folder) p {
-  display: inline;
-  text-align: right;
-  margin-left: 3px;
-}
-*/
-
 .resize-handle {
   width: 10px;
-  height: 100px;
-  background-color: gray;
+  height: auto;
+  background-color: var(--met-red);
   cursor: e-resize;
 }
 
@@ -122,9 +101,28 @@ li {
   text-decoration: none;
 }
 
-#folders {
-  height: 836px;
-  overflow: auto;
+#side_panel {
+  height: 890px;
+  min-width: 200px;
+  max-width: 750px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: white;
+}
+#side_panel::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--met-red-hover);
+}
+#side_panel::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--met-red-bright);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.folder-header {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .folder-header p {
   display: inline-block;
@@ -150,8 +148,9 @@ li {
   border-radius: 20px;
   margin: 1px 0;
   padding: 5px;
-  border: 0;
-  transition: all 300ms ease-in-out;
+  border: 1px solid lightgray;
+  transition: all 200ms ease-in-out;
+  background-color: white;
 }
 #folders > * > *.folder-header,
 #folders > *.content button {
@@ -159,15 +158,18 @@ li {
   border-bottom-right-radius: 20px;
   margin: 1px 0;
   padding: 5px;
-  border: 0;
-  transition: all 300ms ease-in-out;
+  border: 1px solid lightgray;
+  transition: all 200ms ease-in-out;
+  background-color: white;
 }
 
 #folders * * .folder-header:hover,
 #folders * * .content button:hover {
-  background-color: blue !important;
+  border: 1px solid var(--met-red-hover);
+  background-color: var(--met-red-hover) !important;
 }
 #folders > * > *.folder-header:hover,
 #folders > *.content button:hover {
-  background-color: blue !important;
+  border: 1px solid var(--met-red-hover);
+  background-color: var(--met-red-hover) !important;
 }
