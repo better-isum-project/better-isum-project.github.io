@@ -12,6 +12,7 @@ $(document).ready(function() {
       data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       success: function(response) {
+        var response = JSON.parse(response);
         if (response.success) {
           alert("Login successful!");
         } else {
