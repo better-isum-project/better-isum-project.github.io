@@ -1,62 +1,49 @@
-document.addEventListener('DOMContentLoaded', function() {
-
-
-  const folderHeaders = document.querySelectorAll('.folder-header');
-
-  folderHeaders.forEach(folderHeader => {
-    folderHeader.addEventListener("click", function() {
-      const folderContent = this.nextElementSibling;
-      const isActive = folderContent.getAttribute("active") === "true";
-      folderContent.style.maxHeight = isActive ? 0 : `${folderContent.scrollHeight}px`;
-      folderContent.setAttribute("active", !isActive);
-      
-      let parent = folderHeader.parentElement.parentElement;
-      while (parent) {
-        parent.style.maxHeight = 'initial';
-        parent = parent.parentElement.parentElement;
-      }
-    });
+$(document).ready(function() {
+  // dropdown folders
+  $('.folder-header').click(function() {
+    var folderContent = $(this).next();
+    var isActive = folderContent.attr("active") === "true";
+    folderContent.css('max-height', isActive ? 0 : folderContent[0].scrollHeight + 'px');
+    folderContent.attr("active", !isActive);
+    
+    $(this).parents().css('max-height', 'initial');
   });
-
-
 
   // toggle active attribute on a folder-header button click
-
-  folderHeaders.forEach(header => {
-    header.addEventListener('click', function() {
-      this.classList.toggle('active');
-    });
+  $('.folder-header').click(function() {
+    $(this).toggleClass('active');
   });
-
-
 
   // a resizable sidebar
-
-  let isResizing = false;
-  let startX = 0;
-
-  const side_panel = document.querySelector('#side_panel');
-  const resizeHandle = document.querySelector('.resize-handle');
-
-  resizeHandle.addEventListener('mousedown', function (event) {
-    isResizing = true;
-    startX = event.clientX;
-    console.log(scrollableDiv.scrollHeight);
-    console.log(scrollableDiv.offsetHeight);
+  var $sidePanel = $("#side_panel");
+  var $resizeHandle = $(".resize-handle");
+  var sidePanelWidth;
+  $resizeHandle.on("mousedown", function() {
+    sidePanelWidth = $sidePanel.width();
+    $(document).on("mousemove", function(e) {
+      $sidePanel.width(e.clientX);
+    });
   });
-  document.addEventListener('mouseup', function () { isResizing = false; });
-  document.addEventListener('mousemove', function (event) {
-    if (!isResizing) return;
-    side_panel.style.width = (side_panel.offsetWidth + (event.clientX - startX)) + 'px';
-    startX = event.clientX;
+  $(document).on("mouseup", function(e) {
+    $(document).off("mousemove");
   });
-
-
 
   // disable scroll bar on side bar when content doesnt exceed the height limit
+  const scrollableDiv = $('#side_panel');
+  if (scrollableDiv.prop('scrollHeight') > scrollableDiv.outerHeight())
+    scrollableDiv.toggleClass('show-scrollbar');
+  else scrollableDiv.css({overflowX: 'hidden'});
 
-  const scrollableDiv = document.querySelector('#side_panel');
-  if (scrollableDiv.scrollHeight < scrollableDiv.offsetHeight) 
-    scrollableDiv.style.setProperty('-webkit-box-shadow', '#a0052f40');
-  else scrollableDiv.style.setProperty('-webkit-box-shadow', '#a0052fbf');
+  preventTextSelection(['side_panel']);
 });
+
+function preventTextSelection(elementIds) {
+  elementIds.forEach(id => {
+    $(`#${id}`).css({
+      'user-select': 'none',
+      '-webkit-user-select': 'none',
+      '-moz-user-select': 'none',
+      '-ms-user-select': 'none'
+    });
+  });
+}

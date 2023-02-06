@@ -69,13 +69,6 @@ body header div {
   display: block;
 }
 
-#side_panel {
-  height: auto;
-  margin: 0;
-  z-index: 0;
-  background-color: lightgray;
-}
-
 #side_panel > button:nth-child(1),
 #expand_button {
   width: 100%;
@@ -102,19 +95,19 @@ li {
 }
 
 #side_panel {
+  display: block;
   height: 890px;
   min-width: 200px;
   max-width: 750px;
-  overflow-x: hidden;
-  overflow-y: scroll;
   background-color: white;
+  resize: horizontal;
 }
 #side_panel::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
   background-color: var(--met-red-hover);
 }
 #side_panel::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: var(--met-red-bright);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
