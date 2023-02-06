@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: "POST",
-      url: "http://betterisumproject.pythonanywhere.com/login",
+      url: "https://betterisumproject.pythonanywhere.com/login",
       data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       success: function(response) {
