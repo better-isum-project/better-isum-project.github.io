@@ -13,11 +13,9 @@ $(document).ready(function() {
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function(response) {
-        if (response.success) {
+        if (response.success)
           alert("Login successful!");
-        } else {
-          alert("Login failed. Please try again.");
-        }
+        else alert("Login failed. Please try again.");
       },
       error: function(error) {
         alert("An error occurred. Please try again later.");
